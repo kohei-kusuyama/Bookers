@@ -1,8 +1,4 @@
 class BooksController < ApplicationController
-  # def new
-  #   @book = Book.new
-  # end
-
   def create
     @book = Book.new(book_params)
     if @book.save
@@ -10,7 +6,7 @@ class BooksController < ApplicationController
     redirect_to book_path(@book.id)
     else
     @books = Book.all
-    flash.now[:notice] = "投稿に失敗しました。"
+    flash.now[:notice]
     render :index
     end
   end
@@ -36,7 +32,7 @@ class BooksController < ApplicationController
        redirect_to book_path(@book.id)
     else
        @books = Book.all
-       flash.now[:notice] = "投稿に失敗しました。"
+       flash.now[:notice] 
        render :edit
     end
   end
